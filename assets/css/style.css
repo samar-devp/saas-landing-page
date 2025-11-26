@@ -1,3 +1,43 @@
+.floating-whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}
+.floating-whatsapp a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: #ffffff;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.floating-whatsapp a:hover {
+  background-color: #1ebe57;
+  color: #ffffff;
+}
+.floating-whatsapp.is-active a {
+  animation: whatsapp-pulse 1.5s ease-in-out;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
 /****** UTILS ******/
 /*** default values ***/
 /***** custom values *****/
@@ -261,7 +301,7 @@ img {
 }
 
 a {
-  color: #3E45EB;
+  color: #FFC107;
   cursor: pointer;
   -webkit-transition: all 0.4s ease;
   -ms-transition: all 0.4s ease;
@@ -269,7 +309,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #3E45EB;
+  color: #FFB300;
   -webkit-transition: all 0.4s ease;
   -ms-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -280,7 +320,7 @@ a:focus {
 }
 
 .green .intro_text a:hover {
-  color: #3E45EB;
+  color: #FFB300;
   -webkit-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -309,18 +349,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   color: #ffffff;
-  border: 2px solid #3E45EB;
-  background-color: #3E45EB;
+  border: 2px solid #FFC107;
+  background-color: #FFC107;
 }
 .btn-primary:hover, .btn-primary:focus {
   background-color: #ffffff;
-  color: #3E45EB;
-  border: 2px solid #3E45EB;
+  color: #FFC107;
+  border: 2px solid #FFC107;
   box-shadow: inset 0 70px 0 0 #ffffff;
 }
 
 .text-muted {
-  color: #3E45EB !important;
+  color: #6c757d !important;
 }
 
 .dropdown-menu {
@@ -411,7 +451,7 @@ a {
   color: #3E45EB;
 }
 a:hover {
-  color: #FF9131;
+  color: #FFC107;
 }
 a:hover, a:focus, a.active {
   outline: none;
@@ -450,7 +490,7 @@ button:focus {
 .form-control {
   background-color: #F5F5F5;
   border-radius: 5px;
-  color: #3E45EB;
+  color: #000000;
   font-size: 15px;
   min-height: 46px;
   padding: 20px 15px;
@@ -461,11 +501,11 @@ button:focus {
   outline: 0 none;
 }
 .form-control::-webkit-input-placeholder, .form-control::-moz-placeholder, .form-control:-ms-input-placeholder, .form-control::-ms-input-placeholder, .form-control::placeholder {
-  color: #3E45EB;
+  color: #666666;
   font-size: 14px;
 }
 .form-control::placeholder {
-  color: #3E45EB;
+  color: #666666;
   font-size: 14px;
 }
 
@@ -475,14 +515,14 @@ button:focus {
 }
 
 .list-group-item {
-  border: 1px solid #3E45EB;
+  border: 1px solid #FFC107;
 }
 
 .form-custom {
   position: relative;
 }
 .form-custom i {
-  color: #3E45EB;
+  color: #FFC107;
   position: absolute;
   top: 35%;
   right: 15px;
@@ -777,7 +817,7 @@ blockquote p {
   font-size: 16px;
   text-align: center;
   border-radius: 12px;
-  background-color: #3E45EB;
+  background-color: #FFC107;
   text-transform: capitalize;
   display: inline-flex;
   align-items: center;
@@ -787,7 +827,7 @@ blockquote p {
   padding: 12px 25px;
 }
 .primary-btn:hover, .primary-btn:active, .primary-btn:focus {
-  background-color: #FF9131;
+  background-color: #FFB300;
   color: #ffffff;
 }
 @media (max-width: 767.98px) {
@@ -805,7 +845,7 @@ blockquote p {
   font-size: 16px;
   text-align: center;
   border-radius: 12px;
-  background-color: #FF9131;
+  background-color: #000000;
   text-transform: none;
   display: flex;
   align-items: center;
@@ -815,7 +855,7 @@ blockquote p {
 }
 .secondary-btn:hover, .secondary-btn:active, .secondary-btn:focus {
   background-color: #ffffff;
-  color: #FF9131;
+  color: #000000;
 }
 @media (max-width: 991.98px) {
   .secondary-btn {
@@ -827,12 +867,12 @@ blockquote p {
   line-height: 12px;
 }
 .secondary-btn.nav-link:hover, .secondary-btn.nav-link:active, .secondary-btn.nav-link:focus {
-  background-color: #3E45EB;
+  background-color: #FFC107;
   color: #ffffff;
 }
 .secondary-btn.home-right-btn:hover, .secondary-btn.home-right-btn:active, .secondary-btn.home-right-btn:focus {
   background-color: #ffffff;
-  color: #FF9131;
+  color: #000000;
 }
 
 .deep-grey-btn {
@@ -863,23 +903,23 @@ blockquote p {
 }
 
 .deep-grey-btn.hover-style:hover, .deep-grey-btn.hover-style:active, .deep-grey-btn.hover-style:focus {
-  background-color: #3E45EB;
+  background-color: #FFC107;
   color: #ffffff;
 }
 
 .primary-btn-outline {
-  color: #FF9131;
+  color: #FFC107;
   font-size: 16px;
   text-align: center;
-  border: 2px solid #FF9131;
+  border: 2px solid #FFC107;
   border-radius: 70px;
   background-color: #ffffff;
   padding: 12px 25px;
 }
 .primary-btn-outline:hover, .primary-btn-outline:active, .primary-btn-outline:focus {
-  background-color: #FF9131;
+  background-color: #FFC107;
   color: #ffffff;
-  border: 2px solid #FF9131;
+  border: 2px solid #FFC107;
 }
 @media (max-width: 767.98px) {
   .primary-btn-outline {
@@ -888,18 +928,18 @@ blockquote p {
 }
 
 .primary-btn-outline-blue {
-  color: #3E45EB;
+  color: #FFC107;
   font-size: 16px;
   text-align: center;
-  border: 2px solid #3E45EB;
+  border: 2px solid #FFC107;
   border-radius: 70px;
   background-color: #ffffff;
   padding: 12px 25px;
 }
 .primary-btn-outline-blue:hover, .primary-btn-outline-blue:active, .primary-btn-outline-blue:focus {
-  background-color: #3E45EB;
+  background-color: #FFC107;
   color: #ffffff;
-  border: 2px solid #3E45EB;
+  border: 2px solid #FFC107;
 }
 @media (max-width: 767.98px) {
   .primary-btn-outline-blue {
@@ -967,7 +1007,7 @@ blockquote p {
 }
 
 .select2-container .select2-selection--single {
-  border: 1px solid #3E45EB;
+  border: 1px solid #FFC107;
   height: 46px;
 }
 .select2-container .select2-selection--single .select2-selection__rendered {
@@ -2103,6 +2143,11 @@ blockquote p {
   padding: 0;
   line-height: 0;
 }
+.header .navbar-header .navbar-brand img {
+  max-height: 150px;
+  padding-left: 45px;
+  height: auto;
+}
 @media (max-width: 991.98px) {
   .header .navbar-header .navbar-brand {
     margin-right: 0;
@@ -2119,7 +2164,7 @@ blockquote p {
 @media (max-width: 768px) {
   .header .navbar-header .logo-small {
     display: block;
-    width: 100%;
+    width: auto;
     text-align: center;
   }
 }

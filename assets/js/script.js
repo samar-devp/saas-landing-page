@@ -435,26 +435,46 @@ if ($('.owl-carousel.retailer-slider').length > 0) {
 	    }
 	});
 
-	// Check if the modal was already shown
-	if (localStorage.getItem("modalShown") !== "true") {
-		// Scroll event
-		$(window).on("scroll", function () {
-			if ($(window).scrollTop() > 100) {
-				openModal();
-				$(window).off("scroll"); // Stop checking after showing once
+	// Floating WhatsApp button: pulse + sound every 2 minutes
+	(function initFloatingWhatsapp() {
+		var btn = document.getElementById('floatingWhatsapp');
+		if (!btn) return;
+
+		function playBeep() {
+			try {
+				var AudioContext = window.AudioContext || window.webkitAudioContext;
+				if (!AudioContext) return;
+				var ctx = new AudioContext();
+				var oscillator = ctx.createOscillator();
+				var gainNode = ctx.createGain();
+				oscillator.type = 'sine';
+				oscillator.frequency.setValueAtTime(880, ctx.currentTime);
+				gainNode.gain.setValueAtTime(0.2, ctx.currentTime);
+				oscillator.connect(gainNode);
+				gainNode.connect(ctx.destination);
+				oscillator.start();
+				oscillator.stop(ctx.currentTime + 0.25);
+				oscillator.onended = function () {
+					ctx.close();
+				};
+			} catch (e) {
+				// ignore audio errors (e.g. autoplay restrictions)
 			}
-		});
-	}
+		}
 
-	// Function to open modal
-	function openModal() {
-		$(".modal, .modal-overlay").fadeIn();
-	}
+		function triggerAttention() {
+			btn.classList.add('is-active');
+			playBeep();
+			setTimeout(function () {
+				btn.classList.remove('is-active');
+			}, 1500);
+		}
 
-	// Function to close modal and set localStorage
-	$("#closeModal, .modal-overlay").on("click", function () {
-		$(".modal, .modal-overlay").fadeOut();
-		localStorage.setItem("modalShown", "true");
-	});
+		// first trigger after 2 minutes, then every 2 minutes
+		setTimeout(function () {
+			triggerAttention();
+			setInterval(triggerAttention, 120000);
+		}, 120000);
+	})();
 
 })(jQuery);

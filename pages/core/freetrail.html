@@ -103,16 +103,14 @@
 						<div class="cust-talk-sec mb-5 mb-lg-0">
 							<div class="section-content free-trail  align-items-start">
 								<h2>Start Your Free Trial</h2>
-								<p class="mb-0 text-start">You will be ringing up sales in under 3 Minutes </p>
-								<h3>Many visitors may be ready to sign up for their free trial. They input the required
-									data and create a free account without noticing the FAQs - only visible if you
-									scroll down.</h3>
+								<p class="mb-0 text-start">Set up your account in just a few minutes and see NeexQ in action.</p>
+								<h3>Share a few basic details, explore the product yourself, and decide if it fits your team — no long calls or commitments needed.</h3>
 								<div class="list-sec skin-primary d-inline-flex align-items-center">
 									<div class="icon-blk skin-primary">
 										<img src="../../assets/img/free-03.svg" alt="">
 									</div>
 									<div class="icon-title">
-										<p><span>24% Achieve Boost in Efficiency</span><br>Optimize Business Processes for Greater Success</p>
+										<p><span>24% Boost in Efficiency</span><br>Streamline everyday processes and reduce manual work.</p>
 									</div>
 								</div>
 
@@ -121,7 +119,7 @@
 										<img src="../../assets/img/free-02.svg" alt="">
 									</div>
 									<div class="icon-title">
-										<p><span>15% Increase in Clock-in Accuracy</span><br>Ensure Precise and Reliable Attendance Tracking</p>
+										<p><span>15% Better Clock‑In Accuracy</span><br>Improve the reliability of attendance and shift records.</p>
 									</div>
 								</div>
 
@@ -130,7 +128,7 @@
 										<img src="../../assets/img/free-01.svg" alt="">
 									</div>
 									<div class="icon-title">
-										<p><span>24% Increase in Daily Active Work Time</span><br>Maximize Productivity and Engagement</p>
+										<p><span>24% More Daily Active Work Time</span><br>Help teams stay focused on meaningful tasks.</p>
 									</div>
 								</div>
 							</div>
@@ -139,7 +137,10 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="consultant-box free-trail">
-							<h2 class="text-center">Get started with your<br><span>7 Day Free Trial</span></h2>
+							<div class="consultant-header mb-4 text-center">
+								<h2>Get started with your</h2>
+								<h5><span>7‑Day Free Trial</span> — no payment details required.</h5>
+							</div>
 							<div class="col-md-12">
 								<form id="commonForm" method="POST">
 									<div class="input-block">
@@ -215,20 +216,17 @@
 					<div class="col-lg-6">
 						<div class="cust-talk-sec mb-5 mb-lg-0">
 							<div class="section-content client-test align-items-start">
-								<h2>Client Testimonials</h2>
+								<h2>Client Stories</h2>
 							</div>
 							<div class="owl-carousel cust-slider">
 								<div class="quote-info test">
 									<div class="quote-text client-test">
 										<div class="quote-text-info">
 											<blockquote class="custom-quote">
-												<h3>After joining hands with New HRMS, technology has never been an
-													issue for us.</h3>
+												<h3>After moving to NeexQ, our HR tech no longer slows us down.</h3>
 											</blockquote>
 											<div class="cust-talk-sep">
-												<p>We have seen a manifold increase in productivity. The product is so
-													user-friendly that even employees who have no payroll processing
-													experience can get started in hardly a weeks’ time.</p>
+												<p>We’ve watched productivity climb across teams. The interface is simple enough that people new to HR tools can feel comfortable in a very short time.</p>
 												<div class="rating-sec test">
 													<div class="rating-icon-grp">
 														<i class="fas fa-star"></i>
@@ -256,13 +254,10 @@
 									<div class="quote-text client-test">
 										<div class="quote-text-info">
 											<blockquote class="custom-quote">
-												<h3>After joining hands with New HRMS, technology has never been an
-													issue for us.</h3>
+												<h3>Once we adopted NeexQ, managing HR work became much smoother.</h3>
 											</blockquote>
 											<div class="cust-talk-sep">
-												<p>We have seen a manifold increase in productivity. The product is so
-													user-friendly that even employees who have no payroll processing
-													experience can get started in hardly a weeks’ time.</p>
+												<p>Our teams now complete HR routines faster, and even first‑time users pick up payroll and attendance workflows quickly.</p>
 												<div class="rating-sec test">
 													<div class="rating-icon-grp">
 														<i class="fas fa-star"></i>
@@ -303,7 +298,7 @@
 				<div class="row aos" data-aos="fade-up">
 					<div class="col-md-12">
 						<div class="section-content">
-							<h5>Empowering community teams at the world's fastest growing companies</h5>
+							<h5>Chosen by ambitious teams across different sectors</h5>
 						</div>
 					</div>
 				</div>
@@ -466,25 +461,21 @@ $('#commonForm').on('submit', function (e) {
        
         if(data == 'db_error'){
             $('.contact-danger').show();
-			$("#Button2").html("Submit");
-     		$('#Button2').attr('disabled', false);
         }
         else if(data == 'success'){
             $('.contact-sucess').show();
 			$("#commonForm")[0].reset();
-			$("#Button2").html("Submit");
-			$('#Button2').attr('disabled', false);
         }
-        else if(data == 'failer'){
+        else {
             $('.contact-danger').show();
-			$("#Button2").html("Submit");
-     		$('#Button2').attr('disabled', false);
         }
-		else{
-			$("#Button2").html("Submit");
-     		$('#Button2').attr('disabled',false);
-		}
-		
+		$("#Button2").html("Submit");
+     	$('#Button2').attr('disabled', false);
+    },
+    error: function () {
+        $('.contact-danger').show();
+		$("#Button2").html("Submit");
+     	$('#Button2').attr('disabled', false);
     }
   });
 
@@ -499,17 +490,7 @@ $('#commonForm').on('submit', function (e) {
     </style>
 
 	<!--Start of Tawk.to Script-->
-	<script type="text/javascript">
-		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-		(function(){
-		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-		s1.async=true;
-		s1.src='https://embed.tawk.to/6256ac54b0d10b6f3e6d5baa/1g0h92bnu';
-		s1.charset='UTF-8';
-		s1.setAttribute('crossorigin','*');
-		s0.parentNode.insertBefore(s1,s0);
-		})();
-	</script>
+	 
 	<!--End of Tawk.to Script-->
 
 <script id="pixel-chaty" async="true" src="https://cdn.chaty.app/pixel.js?id=ZMkQqGwG"> </script>
