@@ -141,7 +141,7 @@
 											<img src="../../assets/img/icons/success-success.svg" alt="Icon" class="img-fluid">
 										</a>
 									</div> 
-									<button type="submit" class="btn primary-btn w-100 text-center" id="Button2">Get Started</button>
+									<button type="button" class="btn primary-btn w-100 text-center" id="Button2" onclick="redirectToWhatsApp(this)">Get Started</button>
 								</form>
 							</div>
 						</div>
@@ -621,78 +621,34 @@
        // form and call validate method        
         $(document).ready(function () {
  
-            $("#commonForm").validate({
-               
-                // In 'rules' user have to specify all the
-               // constraints for respective fields
-                rules: {
-                   
-                    full_name: {
-                        required: true,
-                        minlength: 2 // For length of lastname
-                    },
-                    location: {
-                        required: true,
-                        minlength: 2
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    phone: {
-                        required: true,
-                        number:true
-                    },
-                    // create_password:
-                    // {
-                    //     required:true,
-					// 	minlength: 2
-                    // },
-					agree:
-                    {
-                        required:true,
-                    }
-                },
-            });
+            // Form validation disabled - forms now redirect to WhatsApp
+            // $("#commonForm").validate({
+            //     rules: {
+            //         full_name: {
+            //             required: true,
+            //             minlength: 2
+            //         },
+            //         location: {
+            //             required: true,
+            //             minlength: 2
+            //         },
+            //         email: {
+            //             required: true,
+            //             email: true
+            //         },
+            //         phone: {
+            //             required: true,
+            //             number:true
+            //         },
+            //         agree: {
+            //             required:true,
+            //         }
+            //     },
+            // });
         });
 		$(function () {
-
-$('#commonForm').on('submit', function (e) {
-
-  e.preventDefault();
-  $('.msg_div').hide();
-		$("#Button2").html("Please Wait");
-    	$('#Button2').attr('disabled', true);
-
-  $.ajax({
-    type: 'post',
-    url: '../../includes/mail.php',
-    data: $('form').serialize(),
-    success: function (data) {
-       
-        if(data == 'db_error'){
-            $('.contact-danger').show();
-        }
-        else if(data == 'success'){
-            $('.contact-sucess').show();
-			$("#commonForm")[0].reset();
-        }
-        else {
-            $('.contact-danger').show();
-        }
-		$("#Button2").html("Submit");
-     	$('#Button2').attr('disabled', false);
-    },
-    error: function () {
-        $('.contact-danger').show();
-		$("#Button2").html("Submit");
-     	$('#Button2').attr('disabled', false);
-    }
-  });
-
-});
-
-});
+			// Form submission now redirects to WhatsApp via onclick handler
+		});
     </script>
     <style>
         .error{

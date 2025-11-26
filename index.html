@@ -1938,7 +1938,7 @@
 											<img src="assets/img/icons/success-success.svg" alt="Icon" class="img-fluid">
 										</a>
 									</div> 
-									<button type="submit" class="btn primary-btn w-100 text-center" id="Button2">Submit</button>
+									<button type="button" class="btn primary-btn w-100 text-center" id="Button2" onclick="redirectToWhatsApp(this)">Submit</button>
 								</form>
 							</div>
 						</div>
@@ -2536,84 +2536,34 @@
        // form and call validate method        
         $(document).ready(function () {
  
-            $("#commonForm").validate({
-               
-                // In 'rules' user have to specify all the
-               // constraints for respective fields
-                rules: {
-                   
-                    company_name: {
-                        required: true,
-                        minlength: 2 // For length of lastname
-                    },
-                    your_name: {
-                        required: true,
-                        minlength: 2
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    phone: {
-                        required: true,
-                        number:true
-                    },
-                    date_time:
-                    {
-                        required:true
-                    }
-                },
-            });
+            // Form validation disabled - forms now redirect to WhatsApp
+            // $("#commonForm").validate({
+            //     rules: {
+            //         company_name: {
+            //             required: true,
+            //             minlength: 2
+            //         },
+            //         your_name: {
+            //             required: true,
+            //             minlength: 2
+            //         },
+            //         email: {
+            //             required: true,
+            //             email: true
+            //         },
+            //         phone: {
+            //             required: true,
+            //             number:true
+            //         },
+            //         date_time: {
+            //             required:true
+            //         }
+            //     },
+            // });
         });
 		$(function () {
-
-$('#commonForm').on('submit', function (e) {
-
-  e.preventDefault();
-  $('.msg_div').hide();
-		$("#Button2").html("Please Wait");
-    	$('#Button2').attr('disabled', true);
-
-  $.ajax({
-    type: 'post',
-    url: 'includes/mail.php',
-    data: $('form').serialize(),
-    success: function (data) {
-       
-        if(data == 'db_error'){
-            $('.contact-danger').show();
-			$("#Button2").html("Submit");
-     		$('#Button2').attr('disabled', false);
-        }
-        else if(data == 'success'){
-            $('.contact-sucess').show();
-			$("#commonForm")[0].reset();
-			$("#Button2").html("Submit");
-			$('#Button2').attr('disabled', false);
-            // hide success after a short delay
-            setTimeout(function() {
-                $('.contact-sucess').fadeOut();
-            }, 4000);
-        }
-        else if(data == 'failer'){
-            $('.contact-danger').show();
-			$("#Button2").html("Submit");
-     		$('#Button2').attr('disabled', false);
-            setTimeout(function() {
-                $('.contact-danger').fadeOut();
-            }, 4000);
-        }
-		else{
-			$("#Button2").html("Submit");
-     		$('#Button2').attr('disabled',false);
-		}
-		
-    }
-  });
-
-});
-
-});	
+			// Form submission now redirects to WhatsApp via onclick handler
+		});	
 
     </script>
     <style>

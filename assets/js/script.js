@@ -477,4 +477,67 @@ if ($('.owl-carousel.retailer-slider').length > 0) {
 		}, 120000);
 	})();
 
+	// WhatsApp redirect function for form submissions
+	window.redirectToWhatsApp = function(buttonElement) {
+		// Prevent any form submission
+		if (buttonElement) {
+			var form = buttonElement.closest('form');
+			if (form) {
+				// Prevent form validation and submission
+				form.setAttribute('novalidate', 'novalidate');
+				var event = new Event('submit', { cancelable: true });
+				event.preventDefault();
+			}
+		}
+		
+		// Hide any error/success messages
+		jQuery('.msg_div').hide();
+		jQuery('.contact-danger').hide();
+		jQuery('.contact-sucess').hide();
+		
+		var form = buttonElement ? buttonElement.closest('form') : null;
+		if (!form) {
+			// Fallback: try to find form by ID
+			form = document.getElementById('commonForm');
+		}
+		
+		if (!form) {
+			// If no form found, just redirect with basic message
+			var whatsappNumber = "919265058370";
+			var message = encodeURIComponent("Hello! I'm interested in your services.");
+			window.open("https://wa.me/" + whatsappNumber + "?text=" + message, '_blank');
+			return;
+		}
+		
+		var formData = new FormData(form);
+		var message = "Hello! I'm interested in your services.\n\n";
+		
+		// Build message from form fields
+		for (var pair of formData.entries()) {
+			var fieldName = pair[0];
+			var fieldValue = pair[1];
+			
+			// Skip hidden fields and checkboxes that aren't checked
+			if (fieldName === 'agree' || fieldName === 'subject') {
+				continue;
+			}
+			
+			if (fieldValue && fieldValue.trim() !== '') {
+				var label = fieldName.replace(/_/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+				message += label + ": " + fieldValue + "\n";
+			}
+		}
+		
+		// Encode message for URL
+		var encodedMessage = encodeURIComponent(message);
+		var whatsappNumber = "919265058370";
+		var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodedMessage;
+		
+		// Open WhatsApp in new tab
+		window.open(whatsappUrl, '_blank');
+		
+		// Return false to prevent any default behavior
+		return false;
+	};
+
 })(jQuery);
