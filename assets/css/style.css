@@ -2144,9 +2144,20 @@ blockquote p {
   line-height: 0;
 }
 .header .navbar-header .navbar-brand img {
-  max-height: 150px;
-  padding-left: 45px;
+  max-height: 60px;
+  padding-left: 0;
   height: auto;
+  width: auto;
+}
+@media (max-width: 991.98px) {
+  .header .navbar-header .navbar-brand img {
+    max-height: 50px;
+  }
+}
+@media (max-width: 768px) {
+  .header .navbar-header .logo-small img {
+    max-height: 45px;
+  }
 }
 @media (max-width: 991.98px) {
   .header .navbar-header .navbar-brand {
@@ -8171,12 +8182,12 @@ hr {
   }
 }
 
-.section-testi-dreams {
+.section-testi-NeexQ {
   background-image: url("../img/dreamstherapy/testi-img.jpg");
   background-size: cover;
 }
 @media (max-width: 991.98px) {
-  .section-testi-dreams {
+  .section-testi-NeexQ {
     background-image: none;
     margin: 0;
     padding: 60px 0px;
@@ -8343,10 +8354,10 @@ hr {
   -ms-transform: scale(1) rotate(0);
 }
 
-.section-testimonials.section-testi-dreams.testimonial-dreamslife {
+.section-testimonials.section-testi-NeexQ.testimonial-NeexQlife {
   background-image: url("../img/dreamstherapy/dreamslife-testi-img.jpg");
 }
-.section-testimonials.section-testi-dreams.testimonial-dreamslife::before {
+.section-testimonials.section-testi-NeexQ.testimonial-NeexQlife::before {
   content: "";
   background: linear-gradient(73deg, rgba(14, 20, 60, 0.76) 0%, rgba(0, 0, 0, 0) 100%);
 }
@@ -8688,7 +8699,7 @@ hr {
   color: #E8E8E8;
 }
 
-.section-testi-dreams.testimonial-telemedicine {
+.section-testi-NeexQ.testimonial-telemedicine {
   background-image: url("https://NeexQ.co.in/assets/img/telemedicine-testi-bg.jpg");
 }
 
