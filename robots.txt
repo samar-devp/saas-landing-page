@@ -1,0 +1,33 @@
+# robots.txt for smarthr.co.in
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories
+Disallow: /includes/
+Disallow: /cdn-cgi/
+
+# Allow all important pages
+Allow: /index.html
+Allow: /pages/
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://smarthr.co.in/sitemap.xml
+
+# Crawl-delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
